@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Orbi Bot Setup</title>
+
+  <!-- Подключаем React и Vars.js -->
+  <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
+  <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  <script src="vars.js"></script>
+
+  <!-- Подключаем  файл стилей -->
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div id="react-root"></div>
+
+  <script type="text/babel">
+    function OrbiSetup() {
+      const [token, setToken] = React.useState("");
+      const [msg, setMsg] = React.useState("");
+      const [isValid, setIsValid] = React.useState(false);
+      const [lang, setLang] = React.useState("");
+      const [libs, setLibs] = React.useState([]);
+
+      async function validate() {
+        setMsg("Проверка токена...");
+        try {
+          const res = await fetch(`https://api.telegram.org/bot${token}/getMe`);
+          const data = await res.json();
+          if (data.ok) {
+            setMsg(`✅ Бот: @${data.result.username}`);
+            setIsValid(true);
+            window.OrbiVars.token = token;
+            localStorage.setItem("token", window.OrbiVars.token); 
+          } else {
+            setMsg("❌ Токен недействителен.");
+            setIsValid(false);
+          }
+        } catch {
+          setMsg("⚠️ Ошибка соединения.");
+          setIsValid(false);
+        }
+      }
+
+      function selectLang(e) {
+        const value = e.target.value;
+        setLang(value);
+        window.OrbiVars.language = value;
+        localStorage.setItem("language", window.OrbiVars.language);
+
+        if (value === "python") setLibs(["Telebot", "python-telegram-bot"]);
+        else if (value === "nodejs") setLibs(["Telegraf"]);
+        else if (value === "rust") setLibs(["Teloxide"]);
+        else setLibs([]);
+      }
+
+
+
+      function selectLibrary(e) {
+  const lib = e.target.value;
+  window.OrbiVars.library = lib; // сохраняем библиотеку
+  localStorage.setItem("library", window.OrbiVars.library);
+}
+
+      return (
+        <div className="setup-container">
+          <h1 class="orbibottext">Orbi Bot Setup</h1>
+          <div className="token-section">
+            <input
+              value={token}
+              onChange={(e) => setToken(e.target.value)}
+              placeholder="Введите токен..."
+              className="token-input"
+            />
+            <button class="join-button" onClick={validate}>Проверить</button>
+          </div>
+          <p className="message">{msg}</p>
+
+          {isValid && (
+            <>
+              <h3 class="text">Выберите язык</h3>
+              <select className="select-lang" onChange={selectLang}>
+                <option value="">—</option>
+                <option value="python">Python</option>
+                <option value="nodejs">Node.js</option>
+                <option value="rust">Rust</option>
+              </select>
+
+                            {libs.length > 0 && (
+                <>
+                  <h4 class="text">Выберите библиотеку</h4>
+                  <select className="select-lib" onChange={selectLibrary}>
+                    <option value="">—</option>
+                    {libs.map((l) => (
+                      <option key={l}>{l}</option>
+                    ))}
+                  </select>
+                </>
+              )}
+            </>
+          )}
+        </div>
+      );
+    }
+
+    const root = ReactDOM.createRoot(document.getElementById("react-root"));
+    root.render(<OrbiSetup />);
+  </script>
+</body>
+</html>
