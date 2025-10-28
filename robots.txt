@@ -1,0 +1,14 @@
+User-agent: ia_archiver
+Disallow: /
+
+
+User-agent: *
+Disallow:
+
+User-agent: DeepSeek
+Disallow: /
+
+User-agent: DeepSeekBot
+Disallow: /
+
+
