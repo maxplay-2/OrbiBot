@@ -1,0 +1,73 @@
+!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Плюсы и минусы Rust</title>
+    <link rel="stylesheet" href="styles.css" />
+
+    <!-- React и ReactDOM через CDN -->
+    <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
+    <!-- Babel для поддержки JSX -->
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  </head>
+  <body>
+    <div id="root"></div>
+
+    <!-- Наш React-компонент -->
+    <script type="text/babel">
+      const NodeJsInfo = () => {
+        return (
+          <div className="container">
+            <p className="ltext text">
+           Rust — это современный язык программирования, ориентированный на высокую скорость и безопасность. Он позволяет создавать надёжные и быстрые программы, включая Telegram-ботов.     
+            </p>
+
+        
+            <h4 className="orbibottext">
+              Плюсы Rust для создания ТГ ботов:
+            </h4>
+            <p className="ltext text">
+              1. Высокая производительность — боты работают очень быстро, даже при большой нагрузке.
+            </p>
+            <p className="ltext text">
+              2. Безопасность памяти — минимизируются ошибки и сбои в работе бота.
+            </p>
+            <p className="ltext text">
+              3. Асинхронность — легко создавать ботов, которые одновременно обрабатывают множество сообщений.
+            </p>
+            <p className="ltext text">
+              4. Подходит для больших проектов — идеален для сложных и нагруженных ботов.
+            </p>
+            <p className="ltext text">
+              5. Интеграция с Teloxide и другими библиотеками — удобные готовые инструменты для работы с Telegram API.
+            </p>
+
+            <h4 className="orbibottext">
+              Минусы rust для создания ТГ ботов:
+            </h4>
+            <p className="ltext text">
+              1. Более сложный синтаксис — новичкам придётся потратить время на изучение.
+            </p>
+            <p className="ltext text">
+              2. Меньше готовых шаблонов и документации для ботов, чем у Python или Node.js.
+            </p>
+            <p className="ltext">
+              заключение : Rust — отличный выбор для высокопроизводительных и надёжных Telegram-ботов. Он идеально подойдёт для профессиональных проектов с большой нагрузкой, хотя новичкам может быть сложнее освоить язык.
+              </p>
+
+
+            <a href="index.html" className="join-button">
+              А на платформе OrbiBot вы можете легко создать своего ТГ бота на
+              rust и не только!
+            </a>
+          </div>
+        );
+      };
+
+      const root = ReactDOM.createRoot(document.getElementById("root"));
+      root.render(<NodeJsInfo />);
+    </script>
+  </body>
+</html>
