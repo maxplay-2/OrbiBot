@@ -1,0 +1,153 @@
+
+/* Стили для всего документа */
+body {
+    margin: 0;
+    padding: 20px;
+    font-family: 'Nasalization Rg',sans-serif;
+    background-color: black;
+}
+
+/* Контейнер настроек */
+.setup-container {
+    background: #1b1b1b;
+    padding: 40px;
+    border-radius: 16px;
+    box-shadow: 0 0 30px rgba(0, 255, 255, 0.15);
+    width: 400px;
+    text-align: center;
+}
+
+/* Обычный текст с эффектом наведения */
+.text {
+    padding: 4px 8px;
+    color: hsl(120, 100%, 50%);
+    transition: 0.3s;
+}
+
+.text:hover {
+    background-color: black;
+    color: blue;
+}
+
+/* Текст для Orbi Bot */
+.orbibottext {
+    margin: 0;
+    padding: 0;
+    color: rgb(136, 127, 255);
+    transition: 0.3s;
+}
+
+.orbibottext:hover {
+    background-color: black;
+    color: blue;
+}
+
+/* Неоновый текст */
+.neon {
+    color: #0ff;
+    font-size: 48px;
+    font-weight: bold;
+    text-transform: uppercase;
+    text-shadow: 0 0 5px #0ff, 0 0 10px #0ff, 0 0 20px #0ff, 0 0 40px #0ff;
+}
+
+/* Кнопки "Присоединиться" */
+.join-button {
+    background: linear-gradient(135deg, #00eaff, #0078ff);
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 0 10px #00eaff80;
+}
+
+.join-button:hover {
+    background-color: black;
+    color: blue;
+}
+
+/* Кнопки поддержки */
+.support-button {
+    background: linear-gradient(135deg, #00ff40, #0078ff);
+    width: 200px;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 8px;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 0 10px #2bff0080;
+}
+
+.support-button:hover {
+    background-color: green;
+    color: green;
+}
+
+/* Анимация появления */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.orbibottext, .text, .join-button {
+    animation: fadeIn 0.8s ease forwards;
+}
+
+/* Секция токена и поля ввода */
+.token-section {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+.token-input {
+    padding: 10px;
+    width: 230px;
+    border: 1px solid #00eaff60;
+    border-radius: 6px;
+    background: #111;
+    color: #00eaff;
+    outline: none;
+    transition: 0.3s;
+}
+
+.token-input:focus {
+    border-color: #00eaff;
+    box-shadow: 0 0 8px #00eaff80;
+}
+
+/* Стили для select */
+select {
+    padding: 8px;
+    border-radius: 6px;
+    border: 1px solid #00eaff60;
+    background: #111;
+    color: #00eaff;
+    margin-top: 6px;
+    width: 200px;
+    outline: none;
+    transition: 0.2s;
+}
+
+select:focus {
+    border-color: #00eaff;
+    box-shadow: 0 0 8px #00eaff80;
+}
+
+/* Дополнительный шрифт */
+.ltext {
+    font-family: "Times New Roman", Times, serif;
+}
