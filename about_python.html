@@ -1,0 +1,73 @@
+!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Плюсы и минусы Python</title>
+    <link rel="stylesheet" href="styles.css" />
+
+    <!-- React и ReactDOM через CDN -->
+    <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
+    <!-- Babel для поддержки JSX -->
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  </head>
+  <body>
+    <div id="root"></div>
+
+    <!-- Наш React-компонент -->
+    <script type="text/babel">
+      const NodeJsInfo = () => {
+        return (
+          <div className="container">
+            <p className="ltext text">
+           Python — это популярный язык программирования, известный своей простотой и читаемостью. Он позволяет легко создавать программы, включая Telegram-ботов, и быстро разрабатывать новые функции.      
+            </p>
+
+        
+            <h4 className="orbibottext">
+              Плюсы Python для создания ТГ ботов:
+            </h4>
+            <p className="ltext text">
+              1. Простота изучения — новичкам легко писать и понимать код.
+            </p>
+            <p className="ltext text">
+              2. Большое сообщество и множество библиотек (например, python-telegram-bot, Telebot).
+            </p>
+            <p className="ltext text">
+              3. Кроссплатформенность — бот будет работать на Windows, Linux, Mac.
+            </p>
+            <p className="ltext text">
+              4. Подходит для сложных вычислений и обработки данных в отличии от Node JS.
+            </p>
+            <p className="ltext text">
+              5. Лёгко развёртывать – работает на большинстве серверов и облаков
+              (Heroku, Vercel, Railway и т.д.).
+            </p>
+
+            <h4 className="orbibottext">
+              Минусы Python для создания ТГ ботов:
+            </h4>
+            <p className="ltext text">
+              1. Медленнее, чем Node.js или Rust для очень больших нагрузок.
+            </p>
+            <p className="ltext text">
+              2. Асинхронный код чуть сложнее, чем в Node.js.
+            </p>
+            <p className="ltext">
+              Заключение: Python — отличный выбор для большинства Telegram-ботов, особенно если важна простота и удобство разработки. Он подходит как новичкам, так и для профессиональных проектов, хотя для очень высоких нагрузок может понадобиться оптимизация.
+            </p>
+
+            <a href="index.html" className="join-button">
+              А на платформе OrbiBot вы можете легко создать своего ТГ бота на
+              Python и не только!
+            </a>
+          </div>
+        );
+      };
+
+      const root = ReactDOM.createRoot(document.getElementById("root"));
+      root.render(<NodeJsInfo />);
+    </script>
+  </body>
+</html>
